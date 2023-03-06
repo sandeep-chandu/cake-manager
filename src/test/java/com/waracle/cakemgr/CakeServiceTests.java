@@ -14,11 +14,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Spy;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Configuration;
 
 import com.waracle.cakemgr.domain.Cake;
@@ -28,7 +29,7 @@ import com.waracle.cakemgr.repository.CakeRepo;
 import com.waracle.cakemgr.service.CakeServiceImpl;
 
 
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 @Configuration
 public class CakeServiceTests {
 
