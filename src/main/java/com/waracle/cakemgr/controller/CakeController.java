@@ -52,7 +52,7 @@ public class CakeController {
 	
 	@PatchMapping("/{id}")
 	@Operation(summary = "Update Cake details", description = "Update details of a specific cake of by just passing details you want to update")
-	ResponseEntity<Cake> updateCake(@PathVariable Long id, @RequestBody @Valid PatchCakeDTO updateCakeDto){
+	ResponseEntity<Cake> partialUpdateCake(@PathVariable Long id, @RequestBody @Valid PatchCakeDTO updateCakeDto){
 		updateCakeDto.setId(id);
 		return new ResponseEntity<>(cakeService.partialUpdateCake(updateCakeDto), HttpStatus.OK);
 	}
