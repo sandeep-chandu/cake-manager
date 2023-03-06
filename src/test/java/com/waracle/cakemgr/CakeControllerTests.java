@@ -16,7 +16,6 @@ import com.waracle.cakemgr.repository.CakeRepo;
 import com.waracle.cakemgr.service.CakeService;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.not;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -149,21 +148,21 @@ public class CakeControllerTests {
 						"https://s3-eu-west-1.amazonaws.com/s3.mediafileserver.co.uk/carnation/WebFiles/RecipeImages/lemoncheesecake_lg.jpg")
 				.build();
 		
-		Cake cake = Cake.builder().id((long) 1)
+		Cake cake = Cake.builder().id((long) 1L)
 				.description("A cheesecake made of lemon")
 				.title("Lemon cheesecake")
 				.imageUrl(
 						"https://s3-eu-west-1.amazonaws.com/s3.mediafileserver.co.uk/carnation/WebFiles/RecipeImages/lemoncheesecake_lg.jpg")
 				.build();
 
-		given(cakeService.save(any(CakeDTO.class))).willReturn(cake);
+		given(cakeService.update(any(CakeDTO.class))).willReturn(cake);
 
-		ResultActions response = mockMvc.perform(put("/cakes/{id}", (long)1)
+		ResultActions response = mockMvc.perform(put("/cakes/{id}", (long)1L)
 	            .contentType(MediaType.APPLICATION_JSON)
 	            .content(objectMapper.writeValueAsString(updateCakeDto)));
 
 		response.andDo(print()).
-	                andExpect(status().isOk()).andExpect(jsonPath("$.id", not(null)))
+	                andExpect(status().isOk()).andExpect(jsonPath("$.id").exists())
 	                .andExpect(jsonPath("$.title",
 	                        is(cake.getTitle())))
 	                .andExpect(jsonPath("$.description",
