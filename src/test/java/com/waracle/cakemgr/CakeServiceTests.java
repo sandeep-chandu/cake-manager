@@ -151,7 +151,7 @@ public class CakeServiceTests {
 	
 	@Test
 	public void updateCake() {
-		CakeDTO createCakeDTO = CakeDTO.builder()
+		CakeDTO updateCakeDTO = CakeDTO.builder()
 				.id((long)1L)
 				.description("A cheesecake with lemon flavour")
 				.title("Lemon cheesecake")
@@ -165,12 +165,13 @@ public class CakeServiceTests {
 				.build();
 		this.modelMapper.createTypeMap(CakeDTO.class, Cake.class);
 		
-		
+		when(cakeRepo.findById(updateCakeDTO.getId())).thenReturn(Optional.of(cake));
 		when(cakeRepo.save(any(Cake.class))).thenAnswer((invocation) -> invocation.getArgument(0));
-		Cake cakeRes = cakeService.update(createCakeDTO);
+		
+		Cake cakeRes = cakeService.update(updateCakeDTO);
 		
 		assertNotNull(cakeRes.getId());
-		assertEquals(createCakeDTO.getDescription(), cakeRes.getDescription());
+		assertEquals(updateCakeDTO.getDescription(), cakeRes.getDescription());
 		assertEquals(cake.getImageUrl(), cakeRes.getImageUrl());
 		assertEquals(cake.getTitle(), cakeRes.getTitle());
 		
