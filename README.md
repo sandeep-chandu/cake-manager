@@ -1,16 +1,16 @@
 ## Cake Manager Micro Service
 
 ### Stack used:
-   ⋅⋅*  Java 17
-   ⋅⋅*  Springboot 2.7.9
-   ⋅⋅*  Junit5 and Mockito frameworks for unit and integration testing
-   ⋅⋅*  Maven build tool
-   ⋅⋅*  H2 database
-   ⋅⋅*  Open API Swagger for API specification
-   ⋅⋅*  Auth0 platform for Authentication and Authorisation. [Auth0](https://auth0.com/)
-   ⋅⋅*  GitHub actions for Continous Itegration
-   ⋅⋅*  DockerHub container registry
-   ⋅⋅*  Docker for containerisation
+   *  Java 17
+   *  Springboot 2.7.9
+   *  Junit5 and Mockito frameworks for unit and integration testing
+   *  Maven build tool
+   *  H2 database
+   *  Open API Swagger for API specification
+   *  Auth0 platform for Authentication and Authorisation. [Auth0](https://auth0.com/)
+   *  GitHub actions for Continous Itegration
+   *  DockerHub container registry
+   *  Docker for containerisation
    
 ## How to run and test?
 
