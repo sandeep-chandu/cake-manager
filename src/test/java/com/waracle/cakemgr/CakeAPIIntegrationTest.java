@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -26,9 +27,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.waracle.cakemgr.domain.Cake;
 import com.waracle.cakemgr.dto.CakeDTO;
 import com.waracle.cakemgr.dto.PatchCakeDTO;
-import com.waracle.cakemgr.service.CakeService;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@Configuration
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = TestSecurityConfig.class)
 public class CakeAPIIntegrationTest {
 
 	  @LocalServerPort
@@ -36,9 +37,6 @@ public class CakeAPIIntegrationTest {
 
 	  @Autowired
 	  private TestRestTemplate restTemplate;
-	  
-	  @Autowired
-	  private CakeService cakeService;
 	  
 	  private static HttpHeaders headers;
 
