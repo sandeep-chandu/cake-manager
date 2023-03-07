@@ -18,15 +18,12 @@
 Make sure you have docker installed on the machine.
   1.  Open cmd or temrnial and run the following command to pull the image from DockerHub
   
-    ```
-    docker pull sandeepchandu/cake-manager-1.0
-    ```
+    ```docker pull sandeepchandu/cake-manager-1.0```
+  
     
   2.  Run the image using docker run command below, wait for the application to get deployed.
   
-    ```
-    docker run -p9999:8080 sandeepchandu/cake-manager-1.0
-    ```
+    ```docker run -p9999:8080 sandeepchandu/cake-manager-1.0```
     
   3.  Access swagger at http://localhost:9999/swagger-ui/index.html
   
