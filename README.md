@@ -30,15 +30,12 @@ Make sure you have docker installed on the machine.
       
         **Read only token**: can perform GET operations only
         ```
-          curl --request POST --url https://dev-l0bv5x78cpcytc8k.us.auth0.com/oauth/token --header 'content-type: application/json' --data '{"client_id":"tddpCn7tmsoXwutJOkfDvw6ZT3EeHrU5","client_secret":"iZceSFR9EX5-uG2QEZSudSdOq6L6Tnhi8J4K4cLdQBf65KWgnFJQfOXkVYN6Gdmg","audience":"https://cake-manager/","grant_type":"client_credentials"}'
+          curl --request POST --url https://dev-l0bv5x78cpcytc8k.us.auth0.com/oauth/token \n --header 'content-type: application/json' \n --data '{"client_id":"tddpCn7tmsoXwutJOkfDvw6ZT3EeHrU5","client_secret":"iZceSFR9EX5-uG2QEZSudSdOq6L6Tnhi8J4K4cLdQBf65KWgnFJQfOXkVYN6Gdmg","audience":"https://cake-manager/","grant_type":"client_credentials"}'
         ```
         
         **Read & Write user**: can invoke GET, POST, PATCH, PUT and DELETE operations on /cake endpoint
         ```
-          curl --request POST \
-  --url https://dev-l0bv5x78cpcytc8k.us.auth0.com/oauth/token \
-  --header 'content-type: application/json' \
-  --data '{"client_id":"aejHscwlzZN4DOL8rwCtoeIh1XeMrkHH","client_secret":"8F6Jz3w5elWKAdUFyLBSUJ5jGqr3T-J4W0ORzwm2xG1CCssnc0zUlmSbfPsyGw2Q","audience":"https://cake-manager/","grant_type":"client_credentials"}'
+          curl --request POST \n --url https://dev-l0bv5x78cpcytc8k.us.auth0.com/oauth/token \n --header 'content-type: application/json' \n --data '{"client_id":"aejHscwlzZN4DOL8rwCtoeIh1XeMrkHH","client_secret":"8F6Jz3w5elWKAdUFyLBSUJ5jGqr3T-J4W0ORzwm2xG1CCssnc0zUlmSbfPsyGw2Q","audience":"https://cake-manager/","grant_type":"client_credentials"}'
         ```
         Copy the value of access_token from the response.
   5. Once the you have access token store/update it in the Authorize section of swagger and invoke the APIs to test.
