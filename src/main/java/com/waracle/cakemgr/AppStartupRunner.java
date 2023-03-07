@@ -44,26 +44,21 @@ public class AppStartupRunner implements ApplicationRunner {
 
         JsonToken nextToken = parser.nextToken();
         while(nextToken == JsonToken.START_OBJECT) {
-            System.out.println("creating cake entity");
 
             CakeDTO cakeEntity = new CakeDTO();
-            System.out.println(parser.nextFieldName());
             cakeEntity.setTitle(parser.nextTextValue());
 
-            System.out.println(parser.nextFieldName());
             cakeEntity.setDescription(parser.nextTextValue());
 
-            System.out.println(parser.nextFieldName());
             cakeEntity.setImageUrl(parser.nextTextValue());
 
             cakeService.save(cakeEntity);
             
             nextToken = parser.nextToken();
-            System.out.println(nextToken);
 
             nextToken = parser.nextToken();
-            System.out.println(nextToken);
-	}
+        }
+        System.out.println("Initial data load complete!");
 	}
 
 }
