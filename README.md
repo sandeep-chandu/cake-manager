@@ -30,10 +30,7 @@ Make sure you have docker installed on the machine.
       
         **Read only token**: can perform GET operations only
         ```
-          curl --request POST \
-  --url https://dev-l0bv5x78cpcytc8k.us.auth0.com/oauth/token \
-  --header 'content-type: application/json' \
-  --data '{"client_id":"tddpCn7tmsoXwutJOkfDvw6ZT3EeHrU5","client_secret":"iZceSFR9EX5-uG2QEZSudSdOq6L6Tnhi8J4K4cLdQBf65KWgnFJQfOXkVYN6Gdmg","audience":"https://cake-manager/","grant_type":"client_credentials"}'
+          curl --request POST --url https://dev-l0bv5x78cpcytc8k.us.auth0.com/oauth/token --header 'content-type: application/json' --data '{"client_id":"tddpCn7tmsoXwutJOkfDvw6ZT3EeHrU5","client_secret":"iZceSFR9EX5-uG2QEZSudSdOq6L6Tnhi8J4K4cLdQBf65KWgnFJQfOXkVYN6Gdmg","audience":"https://cake-manager/","grant_type":"client_credentials"}'
         ```
         
         **Read & Write user**: can invoke GET, POST, PATCH, PUT and DELETE operations on /cake endpoint
