@@ -48,6 +48,7 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
+        context: .
         push: true
-        tags: user/cake-manager-1.0:latest
+        tags: sandeepchandu/cake-manager-1.0:latest
     
