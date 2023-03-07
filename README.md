@@ -20,7 +20,6 @@ Make sure you have docker installed on the machine.
   
     docker pull sandeepchandu/cake-manager-1.0
   
-    
   2.  Run the image using docker run command below, wait for the application to get deployed.
   
     docker run -p9999:8080 sandeepchandu/cake-manager-1.0
@@ -34,7 +33,7 @@ Make sure you have docker installed on the machine.
           curl --request POST --url https://dev-l0bv5x78cpcytc8k.us.auth0.com/oauth/token  --header 'content-type: application/json' --data '{"client_id":"tddpCn7tmsoXwutJOkfDvw6ZT3EeHrU5","client_secret":"iZceSFR9EX5-uG2QEZSudSdOq6L6Tnhi8J4K4cLdQBf65KWgnFJQfOXkVYN6Gdmg","audience":"https://cake-manager/","grant_type":"client_credentials"}'
         ```
         
-        **Read & Write user**: can invoke GET, POST, PATCH, PUT and DELETE operations on /cake endpoint
+        **Read & Write token**: can invoke GET, POST, PATCH, PUT and DELETE operations on /cake endpoint
         ```
           curl --request POST --url https://dev-l0bv5x78cpcytc8k.us.auth0.com/oauth/token --header 'content-type: application/json' --data '{"client_id":"aejHscwlzZN4DOL8rwCtoeIh1XeMrkHH","client_secret":"8F6Jz3w5elWKAdUFyLBSUJ5jGqr3T-J4W0ORzwm2xG1CCssnc0zUlmSbfPsyGw2Q","audience":"https://cake-manager/","grant_type":"client_credentials"}'
         ```
