@@ -41,20 +41,16 @@ public class CakeServiceImpl implements CakeService {
 	@Override
 	public Cake getCakeById(Long id) {
 		Optional<Cake> cakeOptional = cakeRepo.findById(id);
-		if(cakeOptional.isEmpty()) {
-			throw new EntityNotFoundException();
-		}else {
-			return cakeOptional.get();
-		}
+		cakeOptional.orElseThrow(EntityNotFoundException::new);
+		return cakeOptional.get();
 	}
 
 	@Override
 	public Cake partialUpdateCake(PatchCakeDTO cakeDto) {
 		// TODO Auto-generated method stub
 		Optional<Cake> cakeOptional = cakeRepo.findById(cakeDto.getId());
-		if(cakeOptional.isEmpty()) {
-			throw new EntityNotFoundException();
-		}else {
+		cakeOptional.orElseThrow(EntityNotFoundException::new);
+		
 			Cake cake = cakeOptional.get();
 			TypeMap<PatchCakeDTO, Cake> propertyMapper = modelMapper.getTypeMap(PatchCakeDTO.class, Cake.class);
 		    propertyMapper.addMappings(mapper -> mapper.when(Conditions.isNull()).skip(PatchCakeDTO::getImageUrl, Cake::setImageUrl));
@@ -63,7 +59,6 @@ public class CakeServiceImpl implements CakeService {
 		    
 		    propertyMapper.map(cakeDto, cake);
 		    return cakeRepo.save(cake);
-		}
 	}
 
 	@Override
@@ -74,14 +69,12 @@ public class CakeServiceImpl implements CakeService {
 	@Override
 	public Cake update(CakeDTO cakeDto) {
 		Optional<Cake> cakeOptional = cakeRepo.findById(cakeDto.getId());
-		if(cakeOptional.isEmpty()) {
-			throw new EntityNotFoundException();
-		}else {
+		cakeOptional.orElseThrow(EntityNotFoundException::new);
+		
 			TypeMap<CakeDTO, Cake> propertyMapper = modelMapper.getTypeMap(CakeDTO.class, Cake.class);
 			Cake cake= new Cake();
 			propertyMapper.map(cakeDto, cake);
 			return cakeRepo.save(cake);
-		}
 	}
 
 }
